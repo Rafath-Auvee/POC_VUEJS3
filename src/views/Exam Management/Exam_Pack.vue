@@ -1,12 +1,12 @@
 <template>
 <div>
   <div class="container">
-    <button class="primary-btn flex-btn">
+    <button @click="handleAddExamPack" class="primary-btn flex-btn">
       <i class="fas fa-plus"></i> <span> Add Exam Pack </span>
     </button>
   <div class="pack_container">
     <div v-for="examPack in examPacks" :key="examPack.id"  class="card" >
-      <ExamPackCard :examPack="examPack"/>
+      <ExamPackCard @unpack-exam="unpackExam" :examPack="examPack"/>
     </div>
     </div>
 
@@ -59,9 +59,18 @@ export default {
         batch: '2021'
       }
     ])
+    const unpackExam = (examPack) => {
+      console.log('clicked', examPack)
+    }
+
+    const handleAddExamPack = () => {
+      console.log('Add exam pack')
+    }
 
     return {
       examPacks,
+      unpackExam,
+      handleAddExamPack
     }
   }
 }

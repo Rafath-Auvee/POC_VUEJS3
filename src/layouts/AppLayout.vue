@@ -21,6 +21,7 @@ export default {
   background-color: #fafafa;
 	min-height: 100vh;
 	overflow-x: hidden;
+  overflow-y: hidden;
 	min-width: 100%;
 }
 

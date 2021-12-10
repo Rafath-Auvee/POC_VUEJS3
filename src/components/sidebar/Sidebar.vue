@@ -58,7 +58,7 @@ export default {
   background-color: var(--sidebar-bg-color);
   float: left;
   position: fixed;
-  height: 100vh;
+  height: 100%;
   z-index: 1;
   top: 0;
   left: 0;

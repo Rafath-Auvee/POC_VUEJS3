@@ -5,7 +5,9 @@
     </div>
     <div class="text">
       <h3> {{examPack.title}} </h3>
-      <p>Batch {{examPack.batch}} </p>
+      <p @click="$emit('unpack-exam', examPack.id)">
+        Batch {{examPack.batch}} 
+      </p>
     </div>
 </template>
 
@@ -13,6 +15,7 @@
 export default {
   name: "ExamPackCard",
   props: ['examPack'],
+  emits: ['unpack-exam'],
   setup(props) {
      const examPack = props.examPack
 
@@ -37,6 +40,9 @@ export default {
   }
   .img__container img{
     max-width: 77px;
+  }
+  .text{
+    text-align: left;
   }
   .text h3{
     font-weight: bold;
