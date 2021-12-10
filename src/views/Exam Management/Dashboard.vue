@@ -1,3 +1,4 @@
+<!--
 <template>
   <div>
     <h1>The sidebar is {{ collapsed ? 'closed' : 'open' }}</h1>
@@ -13,3 +14,19 @@ export default {
   }
 }
 </script>
+-->
+
+<template>
+  <h1>This is dahsboard</h1>
+</template>
+
+<script>
+export default {
+  name: "Dashboard",
+  
+}
+</script>
+
+<style>
+
+</style>

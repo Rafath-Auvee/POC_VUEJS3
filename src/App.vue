@@ -1,14 +1,19 @@
 <template>
-<div>
-  <Sidebar/>
-  <!-- <div id="nav">
-
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div> -->
-  <router-view />
-</div>
+  <div id="app">
+     <component :is="this.$route.meta.layout || 'div'">
+      <router-view />
+    </component>
+  </div>
 </template>
+
+
+<script>
+
+
+export default {
+
+}
+</script>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
@@ -43,15 +48,3 @@
 
 </style>
 
-
-<script>
-
-import Sidebar from "@/components/sidebar/Sidebar"
-
-export default {
-
-  components:{
-    Sidebar
-    }
-}
-</script>

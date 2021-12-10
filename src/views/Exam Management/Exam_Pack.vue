@@ -1,6 +1,5 @@
 <template>
 <div>
-  <Sidebar class="side"/>
   <div class="flex-container">
     
       <div class="item1">item 1</div>
@@ -10,6 +9,7 @@
   </div>
 </div>
 </template>
+
 
 
 <style scoped>
@@ -59,12 +59,9 @@
 
 <script>
 
-import Sidebar from "@/components/sidebar/Sidebar"
 
 export default {
-
-  components:{
-    Sidebar
-    }
+  name: "ExamPack",
+  
 }
 </script>
