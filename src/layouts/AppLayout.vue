@@ -1,9 +1,9 @@
 <template>
   <div class="app-container">
     <Sidebar />
-    <div class="main">
+    <main class="main">
       <slot />
-    </div>
+    </main>
   </div>
   
 </template>
@@ -15,3 +15,22 @@ export default {
   name: 'AppLayout',
 }
 </script>
+
+<style scoped>
+.app-container{
+  background-color: #fafafa;
+	min-height: 100vh;
+	overflow-x: hidden;
+	min-width: 100%;
+}
+
+.main{
+
+		/* width: calc(100vw - 16rem); */
+		margin-left: 16rem;
+		transition: all 0.4s;
+		padding: 0.2rem 1.8rem;
+		margin-top: 45px;
+	
+}
+</style>>

@@ -1,67 +1,130 @@
 <template>
 <div>
-  <div class="flex-container">
-    
-      <div class="item1">item 1</div>
-      <div class="item2">item 2</div>
-      <div class="item3">item 3</div>
+  <div class="container">
+    <button class="primary-btn flex-btn">
+      <i class="fas fa-plus"></i> <span> Add Exam Pack </span>
+    </button>
+  <div class="pack_container">
+    <div v-for="examPack in examPacks" :key="examPack.id"  class="card" >
+      <ExamPackCard :examPack="examPack"/>
+    </div>
+    </div>
 
   </div>
 </div>
 </template>
+<script>
+import { ref } from '@vue/reactivity'
+import ExamPackCard from '../../components/Exam Management/ExamPackCard.vue'
 
+export default {
+  name: "Exam_Pack",
+  components: {
+    ExamPackCard
+    
+  },
+  setup() {
+    const examPacks = ref([
+      {
+        id: 1, 
+        title: 'Elite Exam Mania',
+        batch: '2021'
+      },{
+        id: 1, 
+        title: 'Elite Exam Mania',
+        batch: '2021'
+      },{
+        id: 1, 
+        title: 'Elite Exam Mania',
+        batch: '2021'
+      },{
+        id: 1, 
+        title: 'Elite Exam Mania',
+        batch: '2021'
+      },{
+        id: 1, 
+        title: 'Elite Exam Mania',
+        batch: '2021'
+      },{
+        id: 1, 
+        title: 'Elite Exam Mania',
+        batch: '2021'
+      },{
+        id: 1, 
+        title: 'Elite Exam Mania',
+        batch: '2021'
+      },{
+        id: 1, 
+        title: 'Elite Exam Mania',
+        batch: '2021'
+      }
+    ])
+
+    return {
+      examPacks,
+    }
+  }
+}
+
+</script>
 
 
 <style scoped>
-  
-  .flex-container {
 
-    display: flex;
-    
-    justify-content: flex-start; 
-    align-items: baseline;    
+.container{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
 
-    height: 100%;
-    padding: 15px;
-    gap: 5px;
-
+.pack_container{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-rows: max-content;
+  grid-auto-rows: max-content;
+  grid-gap:2rem 1.2em;
+  flex: 1;
+  justify-content: center;
+}
+.pack_container::after{
+  content: "";
+  display: block;
+  grid-column-start: 1;
+  height: 1em;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.8em;
+}
+@media (max-width: 600px) {
+  .pack_container{
+    padding: 1em 1em;
   }
-
-  .flex-container > div{
-  
-    
-    border-radius: 5px;
-    padding: 8px;
-  }
-
-
-  .item1 { 
-    /* flex:2 1 auto; */
-    flex-grow:2;
-    align-self:flex-start;
-  }
-			
-  .item2 { 
-    /* flex:2 1 auto; */
-    flex-grow:2;
-    align-self:flex-start;
-  }
-			
-  .item3 { 
-    /* flex:4 1 auto; */
-    flex-grow:4;
-    align-self:auto;
-  }
-			
+}
+.primary-btn{
+  border: none;
+  outline: none;
+  padding: 1rem 1.2rem;;
+  border-radius: 1rem;
+  background: #00A9DC;
+  color: #fff;
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 1.3rem;
+  text-align: center;
+  cursor: pointer;
+}
+.flex-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
 
 </style>
 
-
-<script>
-
-
-export default {
-  name: "ExamPack",
-  
-}
-</script>

@@ -19,11 +19,10 @@ export default {
       <span v-else><img alt="Vue logo" class= "poc_logo" src="../../assets/poc_logo.png" /></span>
     </h1>
 
-    <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink>
-    <SidebarLink to="/dashboard" icon="fas fa-columns">Dashboard</SidebarLink>
-    <SidebarLink to="/exam-pack" icon="fas fa-chart-bar">Exam Pack</SidebarLink>
-    <SidebarLink to="/friends" icon="fas fa-users">Friends</SidebarLink>
-    <SidebarLink to="/image" icon="fas fa-image">Images</SidebarLink>
+    <SidebarLink to="/dashboard" icon="fas fa-home">Dashboard</SidebarLink>
+    <SidebarLink to="/exam-pack" icon="fas fa-columns">Exam Pack</SidebarLink>
+    <SidebarLink to="/reporting" icon="fas fa-chart-bar">Reporting</SidebarLink>
+    <SidebarLink to="/edit-profile" icon="fas fa-cog">Edit Profile</SidebarLink>
 <!-- 
     <span
       class="collapse-icon"
@@ -59,19 +58,20 @@ export default {
   background-color: var(--sidebar-bg-color);
   float: left;
   position: fixed;
+  height: 100vh;
   z-index: 1;
   top: 0;
   left: 0;
   bottom: 0;
   padding-left: 1.5em;
   padding-right: 1.5em;
-  padding-top: 2em;
   transition: 0.1s ease;
   display: flex;
   flex-direction: column;
 }
 .sidebar h1 {
   height: 4em;
+  padding-top: 2.5rem;
 }
 .collapse-icon {
   position: absolute;
