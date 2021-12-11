@@ -4,10 +4,10 @@
       <img src="/images/placeholderImg.svg" alt="">
     </div>
     <div class="text">
-      <h3> {{examPack.title}} </h3>
-      <p @click="$emit('unpack-exam', examPack.id)">
+      <h3 @click="$emit('unpack-exam', examPack)"> {{examPack.title}} </h3>
+      <p>
         Batch {{examPack.batch}} 
-      </p>
+    </p>
     </div>
 </template>
 

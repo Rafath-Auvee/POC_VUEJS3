@@ -6,7 +6,7 @@
     </button>
   <div class="pack_container">
     <div v-for="examPack in examPacks" :key="examPack.id"  class="card" >
-      <ExamPackCard @unpack-exam="unpackExam" :examPack="examPack"/>
+      <ExamPackCard @unpack-exam="onUnpackExam" :examPack="examPack"/>
     </div>
     </div>
 
@@ -59,17 +59,18 @@ export default {
         batch: '2021'
       }
     ])
-    const unpackExam = (examPack) => {
+    const onUnpackExam = (examPack) => {
       console.log('clicked', examPack)
     }
 
     const handleAddExamPack = () => {
+      
       console.log('Add exam pack')
     }
 
     return {
       examPacks,
-      unpackExam,
+      onUnpackExam,
       handleAddExamPack
     }
   }
