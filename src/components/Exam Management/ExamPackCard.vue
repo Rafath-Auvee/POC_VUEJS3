@@ -26,7 +26,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
   
   .img__container{
@@ -43,15 +43,15 @@ export default {
   }
   .text{
     text-align: left;
-  }
-  .text h3{
+
+    h3{
     font-weight: bold;
     font-size: 1.2rem;
     line-height: 25px;
     text-decoration: underline;
     color: #00A9DC;
     cursor: pointer;
-
+  }
   }
   .text p{
     font-size: 0.9rem;
