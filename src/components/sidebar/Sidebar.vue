@@ -42,7 +42,7 @@ export default {
 }
 </style>
 
-<style scoped>
+<style lang="scss" scoped>
 .poc_logo2
 {
   width: 2rem;
@@ -55,7 +55,7 @@ export default {
 }
 .sidebar {
   color: black;
-  background-color: var(--sidebar-bg-color);
+  background-color: var(--sidebar-bg-color); 
   float: left;
   position: fixed;
   height: 100%;
