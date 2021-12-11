@@ -62,7 +62,7 @@ h2{
   background: linear-gradient(45.01deg, #146AB4 9.93%, #00D4FE 88.64%);
 	-webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
+  margin: 0;
 }
 
 .img__container{
@@ -139,7 +139,7 @@ h2{
   }
 }
 
-@media  (min-width:1100px) {
+@media  (min-width:1115px) {
   .form__area{
     max-width: 80%;
   }
