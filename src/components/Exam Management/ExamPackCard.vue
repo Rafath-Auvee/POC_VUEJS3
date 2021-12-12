@@ -4,7 +4,9 @@
       <img src="/images/placeholderImg.svg" alt="">
     </div>
     <div class="text">
-      <h3 @click="$emit('unpack-exam', examPack)"> {{examPack.title}} </h3>
+      <router-link :to="{name: 'ExamUnpack', params: {packTitle: titleToUrl(examPack.title)} }" >
+        <h3 @click="$emit('unpack-exam', examPack)"> {{examPack.title}} </h3> 
+      </router-link>
       <p>
         Batch {{examPack.batch}} 
     </p>
@@ -18,9 +20,10 @@ export default {
   emits: ['unpack-exam'],
   setup(props) {
      const examPack = props.examPack
-
+    const titleToUrl = title => title.trim().toLowerCase().split(' ').join('-')
     return {
-      examPack
+      examPack,
+      titleToUrl
     }
   }
 }

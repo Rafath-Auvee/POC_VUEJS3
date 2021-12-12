@@ -8,16 +8,13 @@ import RegisterOTP from '../views/RegisterOTP.vue'
 import confirmpassword from '../views/confirmpassword.vue'
 import drawar from '../views/drawar.vue'
 import AppLayout from '../layouts/AppLayout.vue'
-import Dashboard from '@/views/Exam Management/Dashboard.vue'
-import Exam_Pack from '@/views/Exam Management/Exam_Pack.vue'
-import Reporting from '@/views/Exam Management/Reporting.vue'
-import EditProfile from '@/views/Exam Management/EditProfile.vue'
+const lazyLoad = (view) => () => import(`@/views//Exam Management/${view}.vue`);
 
 const routes = [
     {
         path: '/',
         name: 'Dashboard',
-        component: Dashboard,
+        component: lazyLoad('Dashboard'),
         meta: {
             layout: AppLayout
         }
@@ -25,7 +22,7 @@ const routes = [
     {
         path: '/dashboard',
         name: 'Dashboard',
-        component: Dashboard,
+        component: lazyLoad('Dashboard'),
         meta: {
             layout: AppLayout
         }
@@ -33,23 +30,42 @@ const routes = [
     {
         path: '/exam-pack',
         name: 'Exam_Pack',
-        component: Exam_Pack,
+        component: lazyLoad('Exam_Pack'),
         meta: {
             layout: AppLayout
         }
     },
+    {
+        path: '/exam-pack/:packTitle',
+        name: 'ExamUnpack',
+        component: lazyLoad('ExamUnpack'),
+        props: true,
+        meta: {
+            layout: AppLayout
+        }
+    },
+    
     {
         path: '/reporting',
         name: 'Reporting',
-        component: Reporting,
+        component: lazyLoad('Reporting'),
         meta: {
             layout: AppLayout
         }
     },
     {
+        path: '/reporting/:examId',
+        name: 'SpecificExamReport',
+        component: lazyLoad('SpecificExamReport'),
+        meta: {
+            layout: AppLayout
+        }
+    },
+
+    {
         path: '/edit-profile',
         name: 'EditProfile',
-        component: EditProfile,
+        component: lazyLoad('EditProfile'),
         meta: {
             layout: AppLayout
         }

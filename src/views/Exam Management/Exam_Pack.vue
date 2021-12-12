@@ -30,37 +30,37 @@ export default {
         title: 'Elite Exam Mania',
         batch: '2021'
       },{
-        id: 1, 
+        id: 2, 
         title: 'Elite Exam Mania',
         batch: '2021'
       },{
-        id: 1, 
+        id: 3, 
         title: 'Elite Exam Mania',
         batch: '2021'
       },{
-        id: 1, 
+        id: 4, 
         title: 'Elite Exam Mania',
         batch: '2021'
       },{
-        id: 1, 
+        id: 5, 
         title: 'Elite Exam Mania',
         batch: '2021'
       },{
-        id: 1, 
+        id: 6, 
         title: 'Elite Exam Mania',
         batch: '2021'
       },{
-        id: 1, 
+        id: 7, 
         title: 'Elite Exam Mania',
         batch: '2021'
       },{
-        id: 1, 
+        id: 8, 
         title: 'Elite Exam Mania',
         batch: '2021'
       }
     ])
     const onUnpackExam = (examPack) => {
-      console.log('clicked', examPack)
+      // console.log('clicked', examPack)
     }
 
     const handleAddExamPack = () => {

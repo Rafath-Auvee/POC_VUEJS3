@@ -1,1 +1,43 @@
-$bg-classroom: #009e08;
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flexVertical {
+  display: flex;
+  flex-direction: column;
+}
+@mixin flexHorizontal {
+  display: flex;
+  justify-content: center;
+
+}
+
+// respond is the name of your mixin
+
+@mixin respond ($breakpoint) {
+
+  // $breakpoint is simply a variable that can have several values
+
+  @if $breakpoint==tablet {
+
+      // here `laptop` is the value of $breakpoint
+      // when call laptop, we mean the following piece of code        
+
+  @media only screen and (max-width: 600px) {
+    @content;
+  }
+}
+
+@if $breakpoint==mobile {
+  @media only screen and (max-width: 480px) {
+    @content;
+  }
+}
+}
+@mixin maxMedia ($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content
+  }
+}
