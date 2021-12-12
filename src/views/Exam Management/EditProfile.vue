@@ -42,7 +42,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 
 .container{
   width: 100%;
