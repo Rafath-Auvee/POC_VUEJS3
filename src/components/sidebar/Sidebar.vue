@@ -14,9 +14,9 @@ export default {
   <div class="sidebar" :style="{ width: sidebarWidth }">
     <h1>
       <span v-if="collapsed">
-        <img alt="Vue logo" class= "poc_logo2" src="../../assets/poc_logo_small.png" />
+        <img alt="Vue logo" class= "poc_logo2" src="@/assets/poc_logo_small.png" />
       </span>
-      <span v-else><img alt="Vue logo" class= "poc_logo" src="../../assets/poc_logo.png" /></span>
+      <span v-else><img alt="Vue logo" class= "poc_logo" src="@/assets/poc_logo.svg" /></span>
     </h1>
 
     <SidebarLink to="/dashboard" icon="fas fa-home">Dashboard</SidebarLink>
