@@ -30,8 +30,8 @@
      <div class="wrapper">
         
         <div class="btns">
-            <CustomLoginRegisterBtn buttonText="Login" :outline="false" @click="handleLogin"/>
-            <CustomLoginRegisterBtn buttonText="Register" :outline="true" @click="handleRegister"/>
+            <CustomLoginRegisterBtn buttonText="Login" :outline="false" @click="handleLoginRoute"/>
+            <CustomLoginRegisterBtn buttonText="Register" :outline="true" @click="handleRegisterRoute"/>
         </div>
      </div>
     </div>
@@ -39,22 +39,30 @@
 </template>
 
 <script>
+import { useRoute, useRouter } from 'vue-router'
 import CustomLoginRegisterBtn from '../components/ui/CustomLoginRegisterBtn.vue'
 export default {
   components: { CustomLoginRegisterBtn },
   name: 'LoginRegister',
-  setup() {
+  setup(props, ctx) {
+    const router = useRouter();
 
-    const handleLogin = () => {
+    const handleLoginRoute = () => {
+      router.push({
+        name: 'Login'
+      })
       console.log('login clicked')
     }
-    const handleRegister = () => {
+    const handleRegisterRoute = () => {
+      router.push({
+        name: 'Register'
+      })
       console.log('register clicked')
     }
 
     return {
-      handleLogin,
-      handleRegister
+      handleLoginRoute,
+      handleRegisterRoute
     }
   }
 }
