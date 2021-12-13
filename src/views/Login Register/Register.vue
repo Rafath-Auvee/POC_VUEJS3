@@ -1,186 +1,100 @@
 <template>
-  <div class= "container justify-content-center  align-items-center">
-    <main class="form-signin">
-        <form>
-          <h1 class="h3 mb-5 fw-normal logintext">Registration</h1>
+  <div class="login_cont" v-if="currentStep === 'register'">
+    <h3>
+      Register
+    </h3>
 
-          <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        <input class="input100" type="number" name="pass" placeholder="Enter your phone number">
-                        <span class="Enter your phone numberfocus-input100"></span>
-                        <span class="symbol-input100">
-													+880 |
-												</span>
-          </div>
-          <div class="wrap-input100 validate-input" data-validate="Valid email is     required: ex@abc.xyz">
-                        <input class="input1002" type="text" name="email" placeholder="Password">
-                        <span class="focus-input100"></span>
-                        <span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-						</span>
-          </div>
+    <form @submit.prevent="handleUserRegister">
+      <CustomPhoneInput v-model="userAuthInput.phoneNumber" placeholder="Enter your phone number" />
+      <CustomAuthInput v-model="userAuthInput.password" placeholder="Enter your password" type="text"/>
 
-          <div class="mt-2">
-            Already have an account? Login
-          </div>
-          
-          <button class="w-100 btn btn-lg btn-primary mt-3 submitbutton" type="submit">Sign in</button>
-          <!-- <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p> -->
-        </form>
-    </main>
-  </div>  
+      <p>
+        Already have an account? <router-link  :to="{name: 'Login'}"> <span class="special"> Login </span></router-link>
+        
+      </p>
+
+      <CustomLoginRegisterBtn  buttonText="Register" />
+    </form>
+  </div>
+  <SendOtp isRegistrationPage="true" v-else/>
+
 </template>
 
 <script>
+import { ref } from '@vue/reactivity'
+import CustomAuthInput from '../../components/Auth Components/CustomAuthInput.vue'
+import CustomPhoneInput from '../../components/Auth Components/CustomPhoneInput.vue'
+import CustomLoginRegisterBtn from '../../components/ui/CustomLoginRegisterBtn.vue'
+import SendOtp from '../../components/Auth Components/SendOtp.vue'
 export default {
-  name: 'Register'
+  components: { CustomAuthInput, CustomPhoneInput, CustomLoginRegisterBtn, SendOtp },
+  name: 'Register',
+  setup() {
+    const userAuthInput = ref({
+      phoneNumber: '',
+      password: ''
+    })
+    const loginSteps = ref(['register', 'SendOtp']);
+    const currentStep = ref('register')
+
+
+    const handleUserRegister = () => {
+      currentStep.value = 'SendOtp'
+      console.log('handle user resisteer func called')
+    }
+
+    return {
+      userAuthInput,
+      handleUserRegister,
+      currentStep
+    }
+  }
 }
 </script>
 
-<style scoped>
-html,
-body {
-  height: 100%;
-}
-
-.wrap-input100 {
-  position: relative;
-  width: 100%;
-  z-index: 1;
-  margin-bottom: 10px;
-  
-  
-}
-
-
-
-.input100 {
-  
-  font-size: 15px;
-  line-height: 1.5;
-  color: #666666;
-  display: block;
-  width: 100%;
-  background: #e6e6e6;
-  border: 2px solid #146AB4;
-  height: 75px;
-  border-radius: 25px;
-  padding: 0 59px 0 93px;
-}
-
-
-.input1002 {
-  
-  font-size: 15px;
-  line-height: 1.5;
-  color: #666666;
-  display: block;
-  width: 100%;
-  background: #e6e6e6;
-  border: 2px solid #146AB4;
-  height: 75px;
-  border-radius: 25px;
-  padding: 0 59px 0 33px;
-}
-
-.symbol-input100 {
-  font-size: 15px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
+<style lang="scss" scoped>
+.login_cont {
+  height: calc(100vh - 125px);
   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  position: absolute;
-  border-radius: 25px;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding-left: 35px;
-  pointer-events: none;
-  
-  -webkit-transition: all 0.4s;
-  background: linear-gradient(45.01deg, #146AB4 9.93%, #00D4FE 88.64%);
-   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-family: 'Montserrat', sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  transition: all 0.4s;
+  // gap: 1.8rem;
+  margin: 0 1rem;
+
+  h3{
+    margin: 1.6rem 0;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 3rem;
+    line-height: 110px;
+    text-align: center;
+    background: linear-gradient(45.01deg, #146AB4 9.93%, #00D4FE 88.64%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    // margin: 0;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+    text-align: center;
+    width: 400px;
+    min-width: 200px;
+    p {
+      color: #00325B;
+      font-size: 1rem;
+      line-height: 24px;
+      .special {
+        cursor: pointer;
+        color: #00325a;
+        text-decoration-line: underline;
+        font-weight: bold;
+      } 
+    }
+  }
 }
 
-input:focus {
-  border: 3px solid #00D4FE;
-}
 
-/* .focus-input100 {
-	
-  display: block;
-  position: absolute;
-  border-radius: 25px;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  box-shadow: 0px 0px 0px 0px;
-  color: rgba(87,184,70, 0.8);
-} */
-
-.submitbutton
-{
-  background: linear-gradient(45.01deg, #146AB4 9.93%, #00D4FE 88.64%);
-  border-radius: 21px;
-  width: 478px;
-  height: 75px;
-}
-
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px;
-  padding-bottom: 40px;
-  background-color: #f5f5f5;
-}
-
-.form-signin {
-  width: 100%;
-  max-width: 400px;
-  padding: 15px;
-  margin: auto;
-}
-
-.form-signin .checkbox {
-  font-weight: 400;
-}
-
-.form-signin .form-floating:focus-within {
-  z-index: 2;
-}
-
-/* .form-signin input[type="number"] {
-  margin-bottom: -1px;
-  border-radius: 21px;
-  border: 2px solid #146AB4;
-}
-
-.form-signin input[type="password"] {
-  margin-bottom: 10px;
-  border: 2px solid #146AB4;
-  border-radius: 21px;
-} */
-
-.logintext
-{
-  background: linear-gradient(45.01deg, #146AB4 9.93%, #00D4FE 88.64%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-family: 'Montserrat', sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 53.9355px;
-}
 </style>

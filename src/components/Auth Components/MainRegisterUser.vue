@@ -1,25 +1,31 @@
 <template>
   <div class="container">
-    <h2>Edit Profile</h2>
 
     <div class="img__container">
-      <img src="/images/jisanProfile.png" alt="">
+      <img src="/images/userPlaceholder.svg" alt="">
       <span><i class="fas fa-edit "></i></span>
     </div>
   
 
     <div class="form__area">
-      <input placeholder="Your name" type="text" class="input__field">
+      <input placeholder="Your name*" type="text" class="input__field">
 
-      <input placeholder="Your Email" type="email" class="input__field">
+      <input placeholder="Email Address(Optional)" type="email" class="input__field">
 
-      <select name="batch" id="batch">
-        <option value="HSC 2023">HSC 2023</option>
-        <option value="HSC 2022">HSC 2022</option>
-        <option value="HSC 2021">HSC 2021</option>
+      <select name="label" id="label" aria-placeholder="Level">
+        <option value="JSC">JSC</option>
+        <option value="SSC">SSC</option>
+        <option value="HSC">HSC</option>
+        <option value="O-Label">O-Label</option>   
+        <option value="A-Label">A-Label</option>
       </select>
 
-      <input placeholder="School/Collage" type="text" class="input__field">
+      <select name="batch" id="batch">
+        <option value="2023">2023</option>
+        <option value="2022">2022</option>
+        <option value="2021">2021</option>
+      </select>
+
 
       <select name="division" id="division">
         <option value="dhaka">Dhaka</option>
@@ -27,7 +33,8 @@
         <option value="comilla">Comilla</option>
       </select>
 
-      <button class="edit__btn">Edit</button>
+      <input placeholder="School/Collage" type="text" class="input__field">
+      <button @click="handleRegisterNewUser" class="edit__btn">Register</button>
 
     </div>
 
@@ -36,13 +43,30 @@
 </template>
 
 <script>
+import { useRouter } from 'vue-router'
 export default {
-  name: "EditProfile",
+  name: "MainRegisterUser",
+  props: {
+    isRegistrationPage: {
+      type: Boolean,
+      default: () => false
+    }
+  },
+
+  setup(props) {
+    const router = useRouter()
+    const handleRegisterNewUser = () => {
+      router.push('/dashboard')
+    }
+    return {
+      handleRegisterNewUser
+    }
+  }
   
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 
 .container{
   width: 100%;
@@ -56,8 +80,8 @@ export default {
 h2{
   font-style: normal;
   font-weight: bold;
-  font-size: 3rem;
-  line-height: 110px;
+  font-size: 2.3rem;
+  line-height: 90px;
   text-align: center;
   background: linear-gradient(45.01deg, #146AB4 9.93%, #00D4FE 88.64%);
 	-webkit-background-clip: text;
@@ -66,24 +90,26 @@ h2{
 }
 
 .img__container{
-  height: 180px;
-  width: 180px;
+  height: 170px;
+  width: 170px;
   border-radius: 50%;
   position: relative;
   padding-top: 0.3rem;
+  background: #dddddd;
 }
 .img__container img{
-  width:100%;
+  width:80%;
   height: 100%;
+  padding-top: 1.18rem;
 }
 
 .img__container span{
-  font-size: 1.2rem;
+  font-size: 1rem;
   position: absolute;
   bottom: 0;
   right: 0;
-  height: 50px;
-  width: 50px;
+  height: 46px;
+  width: 46px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -98,7 +124,7 @@ h2{
   width: 100%;
   height: 100%;
   
-  margin-top: 2rem;
+  margin-top: 1rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
   grid-template-rows: max-content;
@@ -118,7 +144,11 @@ h2{
   outline: none;
   font-size: 1.1rem;
   padding: 1rem 1.1rem;
-  border: 1.5px solid #00294E;
+  border: 1.5px solid #00D4FE
+;
+}
+.form__area select option {
+  // text-transform: uppercase;
 }
 
 .edit__btn{
@@ -128,6 +158,7 @@ h2{
   color: #fff;
   cursor: pointer;
   background: linear-gradient(45.01deg, #146AB4 9.93%, #00D4FE 88.64%);
+  grid-column-start: 2;
 }
 @media  (max-width:768px) {
   .form__area .input__field,  .form__area select, .edit__btn{
@@ -141,7 +172,7 @@ h2{
 
 @media  (min-width:1115px) {
   .form__area{
-    max-width: 80%;
+    max-width: 70%;
   }
 }
 

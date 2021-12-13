@@ -40,6 +40,10 @@ export default {
   // border: 1.5px solid #146AB4;
   border: none;
   width: 100%;
+  
+  &:active {
+    transform: scale(0.99);
+  }
 }
 .outline {
   border: 1.5px solid #146AB4;

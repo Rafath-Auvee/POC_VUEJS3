@@ -1,22 +1,23 @@
 <template>
-  <div class="login_cont">
+  <div class="login_cont" v-if="currentStep === 'login'">
     <h3>
       Login
     </h3>
 
-    <form>
+    <form @submit.prevent="handleUserLogin">
       <CustomPhoneInput v-model="userAuthInput.phoneNumber" placeholder="Enter your phone number" />
       <CustomAuthInput v-model="userAuthInput.password" placeholder="Enter your password" type="text"/>
 
       <p>
-        Don’t have an account? <router-link  to="{name: 'Register'}"> <span class="special"> Register </span></router-link>
+        Don’t have an account? <router-link  :to="{name: 'Register'}"> <span class="special"> Register </span></router-link>
         <br />
-        <span class="special"> Forgot Password</span>
+        <span @click="handleForgotStep" class="special"> Forgot Password</span>
       </p>
 
-      <CustomLoginRegisterBtn buttonText="Login" />
+      <CustomLoginRegisterBtn  buttonText="Login" />
     </form>
   </div>
+    <SendOtp v-else/>
 </template>
 
 <script>
@@ -24,17 +25,32 @@ import { ref } from '@vue/reactivity'
 import CustomAuthInput from '../../components/Auth Components/CustomAuthInput.vue'
 import CustomPhoneInput from '../../components/Auth Components/CustomPhoneInput.vue'
 import CustomLoginRegisterBtn from '../../components/ui/CustomLoginRegisterBtn.vue'
+import SendOtp from '../../components/Auth Components/SendOtp.vue'
 export default {
-  components: { CustomAuthInput, CustomPhoneInput, CustomLoginRegisterBtn },
+  components: { CustomAuthInput, CustomPhoneInput, CustomLoginRegisterBtn, SendOtp },
   name: 'Login',
   setup() {
     const userAuthInput = ref({
       phoneNumber: '',
       password: ''
     })
+    const loginSteps = ref(['login', 'sendOtp']);
+    const currentStep = ref('login')
+
+    const handleForgotStep = () => {
+      currentStep.value = 'sendOtp'
+    }
+
+
+    const handleUserLogin = () => {
+      console.log('handle user login func called')
+    }
 
     return {
-      userAuthInput
+      userAuthInput,
+      handleUserLogin,
+      handleForgotStep,
+      currentStep
     }
   }
 }
@@ -75,6 +91,7 @@ export default {
       font-size: 1rem;
       line-height: 24px;
       .special {
+        cursor: pointer;
         color: #00325a;
         text-decoration-line: underline;
         font-weight: bold;
