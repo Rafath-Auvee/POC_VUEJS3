@@ -2,7 +2,7 @@
   <div class="container">
 
     <div class="img__container">
-      <img src="/images/userPlaceholder.svg" alt="">
+      <img src="/images/placeholderImg2.svg" alt="">
       <span><i class="fas fa-edit "></i></span>
     </div>
   
@@ -98,9 +98,8 @@ h2{
   background: #dddddd;
 }
 .img__container img{
-  width:80%;
+  width:100%;
   height: 100%;
-  padding-top: 1.18rem;
 }
 
 .img__container span{
@@ -160,13 +159,22 @@ h2{
   background: linear-gradient(45.01deg, #146AB4 9.93%, #00D4FE 88.64%);
   grid-column-start: 2;
 }
+
+
 @media  (max-width:768px) {
   .form__area .input__field,  .form__area select, .edit__btn{
     border-radius: 1rem;
     outline: none;
     font-size: 1.1rem;
     padding: 0.9rem 1rem;
-    border: 1.5px solid #00294E;
+  }
+  .container .form__area{
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  
+
+  .edit__btn{
+   grid-column-start: 1;
   }
 }
 

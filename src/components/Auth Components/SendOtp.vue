@@ -1,11 +1,10 @@
 <template>
   <div class="forgot" v-if="currentStep == 'sendOtp'">
-    <h3 v-if="isRegistrationPage">
+    <h3 v-if="isRegistrationPage == false">
       Forgot Password
-      {{isRegistrationPages}}
     </h3>
 
-    <form  v-on:submit.prevent>
+    <form  v-on:submit.prevent :class="isRegistrationPage && 'mt-4'">
       <CustomPhoneInput v-model="userPhoneNumber" placeholder="Enter your phone number" />
 
       <CustomLoginRegisterBtn @click="handleSendOtp" buttonText="Send OTP" />
@@ -61,6 +60,9 @@ export default {
   align-items: center;
   // gap: 1.8rem;
   margin: 0 1rem;
+  .mt-4 {
+    margin-top: 5rem;
+  }
 
   h3{
     margin: 1.6rem 0;

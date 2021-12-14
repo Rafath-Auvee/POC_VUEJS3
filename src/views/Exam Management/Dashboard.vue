@@ -17,11 +17,13 @@ export default {
 -->
 
 <template>
-  <h1>This is dahsboard</h1>
+  <StudentDashboard />
 </template>
 
 <script>
+import StudentDashboard from '../../components/Exam Management/StudentDashboard.vue'
 export default {
+  components: { StudentDashboard },
   name: "Dashboard",
   
 }
