@@ -55,6 +55,7 @@ export default {
   }
   .text p{
     font-size: 0.9rem;
+    margin-top: .3rem;
     color: #000;
     line-height: 17px;
   }

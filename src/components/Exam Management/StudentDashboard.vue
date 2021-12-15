@@ -84,7 +84,7 @@
           <td class="exam_name">
             
             <span>
-              {{exam.exam_name}}
+              {{strJoin(exam.exam_name)}}
             </span>
           </td>
 
@@ -114,7 +114,7 @@
 </template>
 
 <script>
-import { ref } from '@vue/reactivity'
+import { computed, ref } from '@vue/reactivity'
 import DashboardStatsCountCard from './DashboardStatsCountCard.vue'
 import UpcomingExamCard from './UpcomingExamCard.vue'
 export default {
@@ -187,10 +187,15 @@ examId: 'HSC2021',
     const handleClickUpcomingExam = (exam) => {
       console.log(exam)
     }
+
+    const strJoin = (str) => {
+      return str.split(' ').join('-')
+    }
     return {
       previousExam,
       upcomingExams,
-      handleClickUpcomingExam
+      handleClickUpcomingExam,
+      strJoin
     }
   }
 }
@@ -281,12 +286,6 @@ examId: 'HSC2021',
       grid-gap:2rem 1.2em;
       flex: 1;
       justify-content: center;
-      &::after{
-        content: "";
-        display: block;
-        grid-column-start: 1;
-        height: 1em;
-      }
       .box {
         display: flex;
         flex-direction: column;
@@ -353,6 +352,11 @@ table {
       letter-spacing: 0.2px;
       color: #000;
     }
+    td.answer__sheet span {
+      text-decoration-line: underline;
+      font-weight: 600;
+      cursor: pointer;
+    }
   
     
   }
@@ -366,6 +370,7 @@ table {
     @include maxMedia(968px) {
       padding: 0.5rem 0.9rem 0.5rem 0;
     }
+    
   }
 
 }

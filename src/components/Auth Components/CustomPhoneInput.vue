@@ -25,6 +25,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/styles/config.scss';
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -54,6 +55,9 @@ input[type=number] {
     margin: 0;
     border-right: 1px solid #00d4fe;
     padding: 0 1rem;
+    @include maxMedia(500px) {
+      padding: 0 0.2rem;
+    }
   }
 
   input{
@@ -63,11 +67,16 @@ input[type=number] {
     // line-height: 50px;
     font-size: 1.1rem;
     border-radius: 20px;
+    @include maxMedia(500px) {
+      font-size: 1rem;
+      padding: 1.2rem 0.5rem;
+    }
 
     &::placeholder {
       color: #002C51;
       font-style: italic;
       font-size: 0.9rem;
+
     }
   }
 }

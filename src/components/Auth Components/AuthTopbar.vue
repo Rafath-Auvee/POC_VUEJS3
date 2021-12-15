@@ -31,6 +31,9 @@ header {
   }
   .img__container {
     max-width: 150px;
+    @include maxMedia(500px) {
+      max-width: 120px;
+    }
     img{
       width: 100%;
     }
@@ -42,6 +45,10 @@ header {
     line-height: 24px;
     text-decoration-line: underline;
     color: #000000;
+    @include maxMedia(500px) {
+      font-size: 1rem;
+    line-height: 1.09rem;
+    }
   }
 }
 </style>

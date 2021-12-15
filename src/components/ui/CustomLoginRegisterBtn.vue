@@ -22,6 +22,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/styles/config.scss';
 .base {
   background: linear-gradient(45.01deg, #146AB4 9.93%, #00D4FE 88.64%);
   border-radius: 20px;
@@ -40,6 +41,10 @@ export default {
   // border: 1.5px solid #146AB4;
   border: none;
   width: 100%;
+  @include maxMedia(500px) {
+    font-size: 1.2rem;
+    padding: 0.3rem 0;
+  }
   
   &:active {
     transform: scale(0.99);

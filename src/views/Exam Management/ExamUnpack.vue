@@ -16,9 +16,11 @@
 
       <tr v-for="exam in exams" :key="exam.id">
         <td class="id"> 
-          <span>
-          {{exam.examId}}
-          </span>
+          <router-link :to="{name: 'ExamPage', params: {examId: exam.examId}}">
+            <span>
+              #{{exam.examId}} 
+            </span>
+          </router-link>
            </td>
         <td class="subject">
           <span>
@@ -45,133 +47,133 @@ export default {
     const route = useRoute();
     const exams = ref([
       {
-        examId: '#HSC2022',
+        examId: 'HSC2022',
         subject: 'Physics 1st Paper',
         date: {
           date: '1/22',
           time: '06:00 PM'
         }
       },{
-        examId: '#HSC2020',
+        examId: 'HSC2020',
         subject: 'Physics 2st Paper',
         date: {
           date: '2/22',
           time: '06:00 PM'
         }
       },{
-        examId: '#HSC2021',
+        examId: 'HSC2021',
         subject: 'Chemistry 2st Paper',
         date: {
           date: '3/22',
           time: '06:00 PM'
         }
       },{
-        examId: '#HSC2022',
+        examId: 'HSC2022',
         subject: 'Chemistry 1st Paper',
         date: {
           date: '4/22',
           time: '06:00 PM'
         }
       },{
-        examId: '#HSC2021',
+        examId: 'HSC2021',
         subject: 'Higher Math 1st Paper',
         date: {
           date: '6/22',
           time: '06:00 PM'
         }
       },{
-        examId: '#HSC2022',
+        examId: 'HSC2022',
         subject: 'Higher Math 2st Paper',
         date: {
           date: '7/22',
           time: '06:00 PM'
         }
       },{
-        examId: '#HSC2023',
+        examId: 'HSC2023',
         subject: 'Chemistry',
         date: {
           date: '8/22',
           time: '06:00 PM'
         }
       },{
-        examId: '#HSC2020',
+        examId: 'HSC2020',
         subject: 'Chemistry',
         date: {
           date: '9/22',
           time: '06:00 PM'
         }
       },{
-        examId: '#HSC2022',
+        examId: 'HSC2022',
         subject: 'Physics',
         date: {
           date: '10/22',
           time: '06:00 PM'
         }
       },{
-        examId: '#HSC2021',
+        examId: 'HSC2021',
         subject: 'Physics 1st Paper',
         date: {
           date: '11/22',
           time: '06:00 PM'
         }
       },{
-        examId: '#HSC2023',
+        examId: 'HSC2023',
         subject: 'Physics 1st Paper',
         date: {
           date: '13/22',
           time: '06:00 PM'
         }
       },{
-        examId: '#HSC2020',
+        examId: 'HSC2020',
         subject: 'Physics 1st Paper',
         date: {
           date: '14/22',
           time: '06:00 PM'
         }
       },{
-        examId: '#HSC2021',
+        examId: 'HSC2021',
         subject: 'Physics 1st Paper',
         date: {
           date: '15/22',
           time: '06:00 PM'
         }
       },{
-        examId: '#HSC2023',
+        examId: 'HSC2023',
         subject: 'Physics 1st Paper',
         date: {
           date: '16/22',
           time: '06:00 PM'
         }
       },{
-        examId: '#HSC2022',
+        examId: 'HSC2022',
         subject: 'Physics 1st Paper',
         date: {
           date: '17/22',
           time: '06:00 PM'
         }
       },{
-        examId: '#HSC2023',
+        examId: 'HSC2023',
         subject: 'Physics 1st Paper',
         date: {
           date: '18/22',
           time: '06:00 PM'
         }
       },{
-        examId: '#HSC2022',
+        examId: 'HSC2022',
         subject: 'Physics 1st Paper',
         date: {
           date: '19/22',
           time: '06:00 PM'
         }
       },{
-        examId: '#HSC2021',
+        examId: 'HSC2021',
         subject: 'Physics 1st Paper',
         date: {
           date: '21/22',
           time: '07:00 PM'
         }
       },{
-        examId: '#HSC2022',
+        examId: 'HSC2022',
         subject: 'Physics 1st Paper',
         date: {
           date: '23/3',

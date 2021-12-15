@@ -53,14 +53,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .login_cont {
   height: calc(100vh - 125px);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  // gap: 1.8rem;
-  margin: 0 1rem;
 
   h3{
     margin: 1.6rem 0;
@@ -80,7 +79,8 @@ export default {
     justify-content: center;
     gap: 1em;
     text-align: center;
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     min-width: 200px;
     p {
       color: #00325B;

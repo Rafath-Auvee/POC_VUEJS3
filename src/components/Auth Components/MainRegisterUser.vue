@@ -126,18 +126,9 @@ h2{
   margin-top: 1rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
-  grid-template-rows: max-content;
-  grid-auto-rows: max-content;
   grid-gap:2rem 1.2em;
-  flex: 1;
-  justify-content: center;
 }
-.form__area::after{
-  content: "";
-  display: block;
-  grid-column-start: 1;
-  height: 1em;
-}
+
 .form__area .input__field,  .form__area select, .edit__btn{
   border-radius: 1.1rem;
   outline: none;
@@ -175,6 +166,7 @@ h2{
 
   .edit__btn{
    grid-column-start: 1;
+   margin-bottom: 1rem;
   }
 }
 

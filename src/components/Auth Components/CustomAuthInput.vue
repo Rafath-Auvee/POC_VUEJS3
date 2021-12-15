@@ -21,6 +21,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/styles/config.scss';
 input{
   outline: none;
   border-radius: 20px;
@@ -28,6 +29,10 @@ input{
   padding:1.2rem;
   // line-height: 50px;
   font-size: 1.1rem;
+  @include maxMedia(500px) {
+    font-size: 1rem;
+    padding: 1.2rem 1rem;
+  }
 
   &::placeholder {
     color: #002C51;

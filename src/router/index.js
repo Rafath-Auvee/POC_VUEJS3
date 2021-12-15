@@ -58,6 +58,12 @@ const routes = [
             layout: AppLayout
         }
     },
+    {
+        path: '/exam/:examId',
+        name: 'ExamPage',
+        component: lazyLoadExam('ExamPage'),
+        props: true,
+    },
     
     {
         path: '/reporting',

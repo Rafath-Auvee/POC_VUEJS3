@@ -52,6 +52,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/styles/config.scss';
+
 .otp_cont {
   // height: calc(100vh - 125px);
   display: flex;
@@ -59,7 +61,7 @@ export default {
   justify-content: flex-start;
   align-items: center;
   // gap: 1.8rem;
-  margin:0 1rem;
+  // margin:0 1rem;
 
   form {
     margin-top: 5rem;
@@ -68,7 +70,8 @@ export default {
     justify-content: center;
     gap: 1em;
     text-align: center;
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     min-width: 200px;
     
   }
