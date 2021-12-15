@@ -3,7 +3,7 @@
     <!-- dashboard profile start -->
     <div class="profile">
       <div class="profile__info">
-        <div class="img__container">
+        <div class="img__container1">
           <img src="/images/profile1.jpg" alt="">
         </div>
         <div class="profile__detail">
@@ -232,7 +232,7 @@ examId: 'HSC2021',
     justify-content: flex-start;
     align-items: center;
     gap: 1.5rem;
-    .img__container{
+    .img__container1{
       display: flex;
       justify-content: center;
       align-items: center;
