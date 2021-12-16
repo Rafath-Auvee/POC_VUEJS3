@@ -67,8 +67,8 @@ export default {
 
 <template>
   <div class="checkbox__slider">
-    <input type="checkbox" :disabled="disabled" :class="disabled ? 'disable': '' " :checked="modelValue" id="checkbox" @change="onChange">
-    <label for="checkbox"  class="slider"></label>
+    <input type="checkbox" :disabled="disabled"  :checked="modelValue" id="checkbox" @change="onChange">
+    <label for="checkbox" :class="disabled ? 'disable': '' "  class="slider"></label>
   </div>
 </template>
 

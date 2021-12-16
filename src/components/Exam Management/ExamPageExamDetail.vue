@@ -73,7 +73,7 @@ export default {
     name: "ExamPageExamDetail",
     components: { ToggleSwitch },
     setup(){
-      const isSwitchChecked = ref(false);
+      const isSwitchChecked = ref(true);
       return {
         isSwitchChecked,
       }

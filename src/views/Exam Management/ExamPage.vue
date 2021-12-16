@@ -2,6 +2,7 @@
   <div class="main__container">
     <ExamPageTopBar />
     <ExamPageExamDetail />
+    <ShowAllExamQuestions />
   </div>
 </template>
   
@@ -10,8 +11,9 @@ import { onMounted, ref } from '@vue/runtime-core';
 import { useRoute } from 'vue-router'
 import ExamPageTopBar from '../../components/Exam Management/ExamPageTopBar.vue';
 import ExamPageExamDetail from '../../components/Exam Management/ExamPageExamDetail.vue';
+import ShowAllExamQuestions from '../../components/Exam Management/ShowAllExamQuestions.vue';
 export default {
-  components: { ExamPageTopBar, ExamPageExamDetail },
+  components: { ExamPageTopBar, ExamPageExamDetail, ShowAllExamQuestions },
   name: 'ExamPage',
   setup(props) {
     const route = useRoute();

@@ -15,7 +15,9 @@
 </template>
 <script>
 import { ref } from '@vue/reactivity'
+import getExamList from '../../api/examPackApi'
 import ExamPackCard from '../../components/Exam Management/ExamPackCard.vue'
+import { onMounted } from '@vue/runtime-core'
 
 export default {
   name: "AllExamPack",
@@ -24,44 +26,62 @@ export default {
     
   },
   setup() {
-    const examPacks = ref([
-      {
-        id: 1, 
-        title: 'Elite Exam Mania',
-        batch: '2021'
-      },{
-        id: 2, 
-        title: 'Elite Exam Mania',
-        batch: '2021'
-      },{
-        id: 3, 
-        title: 'Elite Exam Mania',
-        batch: '2021'
-      },{
-        id: 4, 
-        title: 'Elite Exam Mania',
-        batch: '2021'
-      },{
-        id: 5, 
-        title: 'Elite Exam Mania',
-        batch: '2021'
-      },{
-        id: 6, 
-        title: 'Elite Exam Mania',
-        batch: '2021'
-      },{
-        id: 7, 
-        title: 'Elite Exam Mania',
-        batch: '2021'
-      },{
-        id: 8, 
-        title: 'Elite Exam Mania',
-        batch: '2021'
+      const examPacks = ref([
+        {
+          id: 1, 
+          title: 'Elite Exam Mania',
+          batch: '2021'
+        },{
+          id: 2, 
+          title: 'Elite Exam Mania',
+          batch: '2021'
+        },{
+          id: 3, 
+          title: 'Elite Exam Mania',
+          batch: '2021'
+        },{
+          id: 4, 
+          title: 'Elite Exam Mania',
+          batch: '2021'
+        },{
+          id: 5, 
+          title: 'Elite Exam Mania',
+          batch: '2021'
+        },{
+          id: 6, 
+          title: 'Elite Exam Mania',
+          batch: '2021'
+        },{
+          id: 7, 
+          title: 'Elite Exam Mania',
+          batch: '2021'
+        },{
+          id: 8, 
+          title: 'Elite Exam Mania',
+          batch: '2021'
+        }
+      ])
+      const onUnpackExam = (examPack) => {
+        // console.log('clicked', examPack)
       }
-    ])
-    const onUnpackExam = (examPack) => {
-      // console.log('clicked', examPack)
-    }
+
+      const {examList, error, loadExamList} = getExamList();
+      onMounted(() => {
+        const url = 'http://www.exam.poc.ac/api/list_examPack/'
+       
+
+  const options = {
+    method: 'GET',
+    mode: 'no-cors',
+    
+  };
+
+  fetch(url, options).then(function(response) {
+    console.log(response);
+  }).then(function(json) {
+    console.log(json);
+  });
+    })
 
     const handleAddExamPack = () => {
       
