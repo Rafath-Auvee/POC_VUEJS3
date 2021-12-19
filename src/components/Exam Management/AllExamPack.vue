@@ -66,33 +66,22 @@ export default {
       }
 
       const {examList, error, loadExamList} = getExamList();
-      onMounted(() => {
-        const url = 'http://www.exam.poc.ac/api/list_examPack/'
-       
+      const url = "http://www.exam.poc.ac/api/list_examPack"
+      function apiFetch(){
+          fetch(url)
+          .then(res => res.json())
+          .then(data => {
+              console.log(data)
+          })
+      }
+      // apiFetch();
+      // onMounted(() => {
 
-  const options = {
-    method: 'GET',
-    mode: 'no-cors',
-    
-  };
+      // })
 
-  fetch(url, options).then(function(response) {
-    console.log(response);
-  }).then(function(json) {
-    console.log(json);
-  });
-    })
-
-    const handleAddExamPack = () => {
-      
-      console.log('Add exam pack')
-    }
-
-    return {
-      examPacks,
-      onUnpackExam,
-      handleAddExamPack
-    }
+      return {
+        examPacks
+      }
   }
 }
 

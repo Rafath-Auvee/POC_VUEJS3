@@ -91,7 +91,7 @@ export default {
     }
 
     return {
-onChange
+      onChange
     }
   }
 }

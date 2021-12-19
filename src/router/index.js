@@ -81,11 +81,43 @@ const routes = [
             layout: AppLayout
         }
     },
+    {
+        path: '/student-management',
+        name: 'StudentManagement',
+        component: lazyLoadExam('StudentManagement'),
+        meta: {
+            layout: AppLayout
+        }
+    },
+    {
+        path: '/student/:studentId',
+        name: 'SpecificStudent',
+        component: lazyLoadExam('SpecificStudent'),
+        meta: {
+            layout: AppLayout
+        }
+    },
 
     {
         path: '/edit-profile',
         name: 'EditProfile',
         component: lazyLoadExam('EditProfile'),
+        meta: {
+            layout: AppLayout
+        }
+    },
+    {
+        path: '/user-management',
+        name: 'UserManagement',
+        component: lazyLoadExam('UserManagement'),
+        meta: {
+            layout: AppLayout
+        }
+    },
+    {
+        path: '/account-management',
+        name: 'AccountManagement',
+        component: lazyLoadExam('AccountManagement'),
         meta: {
             layout: AppLayout
         }

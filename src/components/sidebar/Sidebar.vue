@@ -21,8 +21,24 @@ export default {
 
     <SidebarLink to="/dashboard" icon="fas fa-home">Dashboard</SidebarLink>
     <SidebarLink to="/exam-pack" icon="fas fa-columns">Exam Pack</SidebarLink>
+    <SidebarLink to='/student-management' icon="fas fa-user-circle">Student Management</SidebarLink>
     <SidebarLink to="/reporting" icon="fas fa-chart-bar">Reporting</SidebarLink>
-    <SidebarLink to="/edit-profile" icon="fas fa-cog">Edit Profile</SidebarLink>
+    <!-- <SidebarLink to="/edit-profile" icon="fas fa-cog">Edit Profile</SidebarLink> -->
+    <SidebarLink to="/user-management" icon="fas fa-cog">
+      <span>Settings</span>
+      <div class="nested">
+        <SidebarLink :isNested="true" to="/user-management" icon="fas fa-circle">
+          <span class="text">
+            User Management 
+          </span>
+        </SidebarLink>  
+        <SidebarLink :isNested="true" to="/account-management" icon="fas fa-circle"> 
+          <span class="text">
+            Account Management 
+          </span>
+        </SidebarLink>  
+      </div>
+    </SidebarLink>
 <!-- 
     <span
       class="collapse-icon"
@@ -64,10 +80,19 @@ export default {
   left: 0;
   bottom: 0;
   padding-left: 1.5em;
-  padding-right: 1.5em;
+  padding-right: 1.6em;
   transition: 0.1s ease;
   display: flex;
   flex-direction: column;
+}
+.nested{
+  position: absolute;
+  left: 25px;
+  top: 30px;
+  font-size: 0.78rem;
+  span.text {
+    font-size: 0.75rem;
+  }
 }
 .sidebar h1 {
   height: 4em;

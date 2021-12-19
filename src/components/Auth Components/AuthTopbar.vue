@@ -26,9 +26,7 @@ header {
   align-items: center;
   padding: 2rem 2.5rem;
   
-  @include maxMedia(768px) {
-    padding: 1rem;
-  }
+ 
   .img__container {
     max-width: 150px;
     @include maxMedia(500px) {

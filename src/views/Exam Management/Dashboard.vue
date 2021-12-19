@@ -17,13 +17,13 @@ export default {
 -->
 
 <template>
-  <StudentDashboard />
+  <StudentProfile />
 </template>
 
 <script>
-import StudentDashboard from '../../components/Exam Management/StudentDashboard.vue'
+import StudentProfile from '../../components/Exam Management/StudentProfile.vue'
 export default {
-  components: { StudentDashboard },
+  components: { StudentProfile },
   name: "Dashboard",
   
 }
