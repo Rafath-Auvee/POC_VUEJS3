@@ -11,6 +11,7 @@
 <script>
 export default {
   name: 'CustomAdminBtn',
+  emits: ['onClick'],
   props: {
     icon: {
       type: String
