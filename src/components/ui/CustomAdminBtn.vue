@@ -1,6 +1,6 @@
 <template>
   <button :disabled="disabled" :class="[type, rounded && 'round']" @click="$emit('onClick')">
-    <i class="icon" :class="icon" />
+    <i v-if="icon" class="icon" :class="icon" />
     <span class="text">
       <slot />
     </span>

@@ -1,14 +1,14 @@
 <template>
   <UserList :allUsers="allUsers" @onAddUser="addUserBtnClick" @onUserEdit="userProfileEdit"  v-if="currentComp === 'UserList' "/>
-  <AddAnUser @onAddNewUser="handleAddNewUser" v-else-if="currentComp === 'AddAnUser' " />
-  <EditAnUser :selectedEditUser='selectedEditUser' v-else />
+  <AddAnUser @addNewUser="handleAddNewUser" v-else-if="currentComp === 'AddAnUser' " @backToList="onBack"/>
+  <EditAnUser :selectedEditUser='selectedEditUser' @onEditUser="handleEditAnUser" @backToList="onBack" v-else />
 </template>
 
 <script>
 import { ref } from '@vue/reactivity'
 import EditAnUser from '../../components/Exam Management/EditAnUser.vue'
 import UserList from '../../components/Exam Management/UserList.vue'
-import AddAnUser from './AddAnUser.vue'
+import AddAnUser from '../../components/Exam Management/AddAnUser.vue'
 export default {
   components: { UserList, EditAnUser, AddAnUser },
   setup() {
@@ -17,31 +17,41 @@ export default {
         id: 1,
         name: 'Jisan Mia',
         img: '',
-        position: 'admin'
+        email: 'abc@gmail.com',
+        password: '#jsdf',
+        position: 'Admin'
       },
       {
         id: 2,
         name: 'Zaheed Hasan',
         img: '',
-        position: 'admin'
+        email: 'abc@gmail.com',
+        password: '#jsdf',
+        position: 'Admin'
       },
       {
         id: 3,
         name: 'Abrar Abir',
         img: '',
-        position: 'user'
+        email: 'abc@gmail.com',
+        password: '#jsdf',
+        position: 'User'
       },
       {
         id: 4,
         name: 'RS Shakil',
         img: '',
-        position: 'user'
+        email: 'abc@gmail.com',
+        password: '#jsdf',
+        position: 'User'
       },
       {
         id: 5,
         name: 'Kibria',
         img: '',
-        position: 'user'
+        email: 'abc@gmail.com',
+        password: '#jsdf',
+        position: 'User'
       },
     ])
     const comps = ['UserList', 'EditAnUser', 'AddAnUser']
@@ -57,18 +67,43 @@ export default {
       currentComp.value = 'EditAnUser';
     }
 
-    const handleAddNewUser = (newUser) => {
+    const handleAddNewUser = (user) => {
       currentComp.value = 'UserList'
-      console.log('add new user', newUser);
-      allUsers.value = [...allUsers.value, {...newUser, id: Math.floor(Math.random() * 1000)}]
+      console.log('add new user', user);
+      allUsers.value = [...allUsers.value, {...user}]
+      console.log(allUsers.value)
     }
 
+    const handleEditAnUser = (user) => {
+      currentComp.value = "UserList";
+      console.log('Edit user', user);
+      const updatedUser = allUsers.value.map(u => {
+        if (u.id == user.id) {
+          return {
+            ...u,
+            name: user.name,
+            email: user.email,
+            password: user.password,
+            position: user.position
+           }
+        } return u
+      })
+
+      allUsers.value = [...updatedUser]
+    }
+
+    const onBack = () => {
+      currentComp.value = 'UserList'
+    }
     return {
       addUserBtnClick,
       userProfileEdit,
       currentComp,
       handleAddNewUser,
-      allUsers
+      allUsers,
+      selectedEditUser,
+      handleEditAnUser,
+      onBack
     }
   }
 

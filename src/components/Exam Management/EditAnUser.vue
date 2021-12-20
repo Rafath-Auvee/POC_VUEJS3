@@ -1,9 +1,11 @@
 <template>
-  <h1>thi is edit user page</h1>
+  <UserManage @back="this.$emit('backToList')" @onEditUser="handleEditUser" :selectedEditUser="selectedEditUser" :isEditUser="true" />
 </template>
 
 <script>
+import UserManage from './UserManage.vue'
 export default {
+  components: { UserManage },
   name: 'EditAnUser',
   props: {
     selectedEditUser: {
@@ -11,9 +13,13 @@ export default {
       required: () => true
     }
   },
-  setup(props) {
-    console.log(props.selectedEditUser)
+  setup(props, ctx) {
+    // console.log(props.selectedEditUser)
+    const handleEditUser = (user) => {
+      ctx.emit('onEditUser', user)
+    }
     return {
+      handleEditUser
 
     }
   }
