@@ -1,7 +1,7 @@
 <template>
   <div class="form-group">
-    <label>{{label}}</label>
-    <input v-bind="$attrs" :value="modelValue" @input="updateValue" :placeholder="placeholder">
+    <label v-if="label">{{label}}</label>
+    <input v-bind="$attrs" :readonly="readonly" :value="modelValue" @input="updateValue" :placeholder="placeholder">
   </div>
 </template>
 
@@ -17,6 +17,10 @@ export default {
     },
     placeholder: {
       type: String
+    },
+    readonly: {
+      type: Boolean,
+      default: () => false
     }
   },
   setup(props, context) {
